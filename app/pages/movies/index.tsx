@@ -46,12 +46,6 @@ const MoviesPage: BlitzPage = () => {
       </Head>
 
       <div>
-        <p>
-          <Link href={Routes.NewMoviePage()}>
-            <a>Create Movie</a>
-          </Link>
-        </p>
-
         <Suspense fallback={<div>Loading...</div>}>
           <MoviesList />
         </Suspense>

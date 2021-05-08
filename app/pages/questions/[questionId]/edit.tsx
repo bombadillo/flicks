@@ -4,6 +4,7 @@ import Layout from "app/core/layouts/Layout"
 import getQuestion from "app/questions/queries/getQuestion"
 import updateQuestion from "app/questions/mutations/updateQuestion"
 import { QuestionForm, FORM_ERROR } from "app/questions/components/QuestionForm"
+import { Choice } from "db"
 
 export const EditQuestion = () => {
   const router = useRouter()
@@ -34,7 +35,7 @@ export const EditQuestion = () => {
                 id: question.id,
                 ...values,
               })
-              await setQueryData(updated)
+              await setQueryData(question)
               router.push(Routes.ShowQuestionPage({ questionId: updated.id }))
             } catch (error) {
               console.error(error)
