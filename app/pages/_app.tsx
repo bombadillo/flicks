@@ -10,18 +10,30 @@ import {
 import { ErrorBoundary } from "react-error-boundary"
 import LoginForm from "app/auth/components/LoginForm"
 
+import { ChakraProvider, extendTheme } from "@chakra-ui/react"
+import Header from "app/core/components/Header"
+
 export default function App({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
   const router = useRouter()
 
+  const theme = extendTheme({
+    config: {
+      initialColorMode: "dark",
+    },
+  })
+
   return (
-    <ErrorBoundary
-      FallbackComponent={RootErrorFallback}
-      resetKeys={[router.asPath]}
-      onReset={useQueryErrorResetBoundary().reset}
-    >
-      {getLayout(<Component {...pageProps} />)}
-    </ErrorBoundary>
+    <ChakraProvider theme={theme}>
+      <ErrorBoundary
+        FallbackComponent={RootErrorFallback}
+        resetKeys={[router.asPath]}
+        onReset={useQueryErrorResetBoundary().reset}
+      >
+        <Header />
+        {getLayout(<Component {...pageProps} />)}
+      </ErrorBoundary>
+    </ChakraProvider>
   )
 }
 

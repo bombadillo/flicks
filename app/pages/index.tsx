@@ -3,6 +3,7 @@ import { Link, BlitzPage, useMutation, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import logout from "app/auth/mutations/logout"
+import { Header } from "app/core/components/Header"
 
 /*
  * This file is just for a pleasant getting started page for your new app.
@@ -51,13 +52,15 @@ const UserInfo = () => {
 
 const Home: BlitzPage = () => {
   return (
-    <div>
-      <h1>Hello, world!</h1>
+    <>
+      <div>
+        <h1>Hello, world!</h1>
 
-      <Suspense fallback="Loading...">
-        <UserInfo />
-      </Suspense>
-    </div>
+        <Suspense fallback="Loading...">
+          <UserInfo />
+        </Suspense>
+      </div>
+    </>
   )
 }
 
