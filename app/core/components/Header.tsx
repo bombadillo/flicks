@@ -24,7 +24,6 @@ export const Header = () => {
           align="center"
           justify={["center", "space-between", "flex-end", "flex-end"]}
           direction={["column", "row", "row", "row"]}
-          pt={[4, 4, 0, 0]}
         >
           <Link href="/">Home</Link>
           <Link href="/movies">Movies</Link>
