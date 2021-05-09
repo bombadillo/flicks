@@ -13,9 +13,6 @@ export default resolver.pipe(resolver.authorize(), async ({ skip }: GetMoviesInp
 
   const movieResponseData: IMovieListResponse = await movieRequest.json()
 
-  console.log(movieResponseData)
-
-  const movies = { page: 1 } as IMovieListResponse
   const hasMore = true
 
   return { movies: movieResponseData.results, hasMore }
